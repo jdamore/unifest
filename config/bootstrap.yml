@@ -1,0 +1,14 @@
+- hosts: local
+  connection: local
+  tasks:
+    - name : apache
+      local_action: command sudo apachectl start
+
+- hosts: remote
+  remote_user: ubuntu
+  sudo: yes
+  tasks:
+    - name : update
+      apt: update_cache=yes
+    - name : apache
+      action: apt pkg=apache2 state=installed

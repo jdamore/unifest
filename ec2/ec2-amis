@@ -1,0 +1,31 @@
+#!/bin/bash
+
+KEYWORD=ubuntu
+USER=amazon
+AMI=
+
+function main() {
+	curr_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+	. $curr_dir/ec2.config
+	ec2-describe-images $AMI --all > $curr_dir/ec2-amis.out
+	cat $curr_dir/ec2-amis.out | grep IMAGE | awk '{ split( $0, a, " "); print a[2],"\t",a[3],"\t",a[7],"\t",a[9] }' > $curr_dir/ec2-amis-all.out
+	rm $curr_dir/ec2-amis.out
+	return 0
+}
+
+
+ok=1
+while getopts k:u:a: opt; do
+	case $opt in
+		k) KEYWORD=$OPTARG;;
+		u) USER=$OPTARG;;
+		a) AMI=$OPTARG;;
+		\?) echo "Invalid option: -$opt"; echo "Usage ec2-amis [-kua]"; ok=0;;
+	esac
+done
+
+
+if [ "$ok" = "1" ]; then
+	EC2_TOOLS="./ec1-api-tools-1.7.1.1/"
+	main
+fi

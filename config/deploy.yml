@@ -1,0 +1,12 @@
+- hosts: local
+  connection: local
+  tasks:
+    - name : deploy
+      local_action: command sudo cp -r ../unifest /Library/WebServer/Documents
+
+- hosts: remote
+  remote_user: ubuntu
+  sudo: yes
+  tasks:
+    - name: deploy
+      action: synchronize src=../unifest dest=/var/www/html/ mode=755

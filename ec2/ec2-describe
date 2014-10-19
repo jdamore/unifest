@@ -1,0 +1,37 @@
+#!/bin/bash
+
+curr_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+. $curr_dir/ec2.config
+ec2-describe-instances > $curr_dir/ec2-describe.out
+
+ret=$?
+if [ $ret -ne 0 ]; then
+	cat $curr_dir/ec2-describe.out
+	rm $curr_dir/ec2-describe.out
+	exit $ret
+fi
+
+
+exec<$curr_dir/ec2-describe.out
+while read line
+do
+	if [[ $line == INSTANCE* ]]; then
+		id=`echo $line | cut -d' ' -f2`
+		ami=`echo $line | cut -d' ' -f3`
+		host=`echo $line | cut -d' ' -f4`
+		key=`echo $line | cut -d' ' -f7`
+		size=`echo $line | cut -d' ' -f9`
+		name=''
+	elif [[ $line == TAG* ]]; then
+		tag_name=`echo $line | cut -d' ' -f4`
+		if [[ $tag_name == Name ]]; then
+			name=`echo $line | cut -d' ' -f5`
+		fi
+	elif [[ ($line == RESERVATION*) && ($is_first == false) ]]; then
+		echo ${id} ${ami} ${host} ${key} ${size} ${name}
+	fi
+	is_first=false
+done
+echo ${id} ${ami} ${host} ${key} ${size} ${name}
+rm $curr_dir/ec2-describe.out
+exit 0
