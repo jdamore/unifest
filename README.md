@@ -59,9 +59,10 @@ Developed on MacOSX 10.9.5.
 
 * ```unifest```: The UniFest website
 
-* ```all.sh```: list all remote (AWS) resources (ec2-api)
-* ```boot.sh```: bootstrap all resources with (Ansible)
-* ```deploy.sh```: deploy the UniFest websote to all resources (Ansible)
-* ```new.sh```: create a new EC2 instance (ec2-api)
+* Plus some top level scripts
+	* ```new.sh```: create a new EC2 instance (ec2-api)
+	* ```all.sh```: list all remote (AWS) resources (ec2-api)
+	* ```boot.sh```: bootstrap all resources with (Ansible)
+	* ```deploy.sh```: deploy the UniFest websote to all resources (Ansible)
 
 
