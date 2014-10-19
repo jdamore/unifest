@@ -39,29 +39,29 @@ Developed on MacOSX 10.9.5.
 
 ## Files
 
-* config : Ansible configuration
-	* local: local resources inventory
-	* remote: remote resources inventory
-	* bootstrap.yml: Playbook for bootstrapping the resources
-	* deploy.yml: Playbook for deploying the site to local and remote resources
+* ```config``` : Ansible configuration
+	* ```local```: local resources inventory
+	* ```remote```: remote resources inventory
+	* ```bootstrap.yml```: Playbook for bootstrapping the resources
+	* ```deploy.yml```: Playbook for deploying the site to local and remote resources
 
-* ec2 : AWS EC2 command line API and wrappers
- 	* ec2-api-tools-1.7.1.1: CLI provided by Amazon
- 	* ec2-amis: list all available AMIs
- 	* ec2-create: create an EC2 instance
- 	* ec2-describe: describe all instance you have created
- 	* ec2-kill: destroy an EC2 instance
- 	* ec2-start: start an ESB-backed EC2 instance
- 	* ec2-stop: stop an ESB-backed EC2 instamce
- 	* ec2-stop-all-running: stop all running ESB-backed EC2 instances
- 	* ec2-tag: add a custom tag to an EC2 instance
- 	* ec2.consfig: the config file - add your keys here
+* ```ec2``` : AWS EC2 command line API and wrappers
+ 	* ```ec2-api-tools-1.7.1.1```: CLI provided by Amazon
+ 	* ```ec2-amis```: list all available AMIs
+ 	* ```ec2-create```: create an EC2 instance
+ 	* ```ec2-describe```: describe all instance you have created
+ 	* ```ec2-kill```: destroy an EC2 instance
+ 	* ```ec2-start```: start an ESB-backed EC2 instance
+ 	* ```ec2-stop```: stop an ESB-backed EC2 instamce
+ 	* ```ec2-stop-all-running```: stop all running ESB-backed EC2 instances
+ 	* ```ec2-tag```: add a custom tag to an EC2 instance
+ 	* ```ec2.config```: the config file - add your keys here
 
- * unifest: The UniFest website
+ * ```unifest```: The UniFest website
 
- * all.sh: list all remote (AWS) resources (ec2-api)
- * boot.sh: bootstrap all resources with (Ansible)
- * deploy.sh: deploy the UniFest websote to all resources (Ansible)
- * new.sh: create a new EC2 instance (ec2-api)
+ * ```all.sh```: list all remote (AWS) resources (ec2-api)
+ * ```boot.sh```: bootstrap all resources with (Ansible)
+ * ```deploy.sh```: deploy the UniFest websote to all resources (Ansible)
+ * ```new.sh```: create a new EC2 instance (ec2-api)
 
 
