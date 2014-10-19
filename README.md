@@ -13,28 +13,28 @@ Developed on MacOSX 10.9.5.
 ### Try locally (on MacOSX)
 
 1. Install Ansible http://www.ansible.com/home
-2. cd to config
+2. ```cd``` to ```config```
 3. run ```ansible-playbook -i local bootstrap.yml```
-4. run ansible-playbook -i local deploy.yml
+4. run ```ansible-playbook -i local deploy.yml```
 5. You should now have the UniFest site at http://localhost/unifest
 
 ### Create a remote server and deploy the site
 
 1. Create an AWS Account and generate an Access Key
-2. In ec2/ec2.config specify your access key
-3. Run new.sh to create a new instance
+2. In ```ec2/ec2.config``` specify your access and secret keys
+3. Run ```./new.sh``` to create a new instance
 4. Add this instance name to the [remote] inventory e.g. ec2-54-163-145-57.compute-1.amazonaws.com
-5. cd to config
-6. run ansible-playbook -i remote bootstrap.yml
-7. run ansible-playbook -i remote deploy.yml
+5. ```cd``` to ```config```
+6. run ```ansible-playbook -i remote bootstrap.yml```
+7. run ```ansible-playbook -i remote deploy.yml```
 8. You should now have the UniFest site on the remote server e.g. http://ec2-54-163-145-57.compute-1.amazonaws.com/unifest
 
 ### All in one
 
-1. Run new.sh to create another instance
+1. Run ```new.sh``` to create another instance
 2. Add this instance name to the [remote] inventory e.g. ec2-54-163-145-57.compute-1.amazonaws.com
-3. run boot.sh to bootstrap your Mac and the remote instances
-4. run deploy.sh to deploy the site to all resources
+3. run ```./boot.sh``` to bootstrap your Mac and the remote instances
+4. run ```./deploy.sh``` to deploy the site to all resources
 5. You should now have the UniFest site on the remote server e.g. http://ec2-<something>.compute-1.amazonaws.com/unifest
 
 ## Files
