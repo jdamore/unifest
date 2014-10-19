@@ -12,11 +12,11 @@ Developed on MacOSX 10.9.5.
 
 ### Try locally (on MacOSX)
 
-1. Install Ansible http://www.ansible.com/home
+1. Install [Ansible](http://www.ansible.com/home)
 2. ```cd``` to ```config```
 3. run ```ansible-playbook -i local bootstrap.yml```
 4. run ```ansible-playbook -i local deploy.yml```
-5. You should now have the UniFest site at http://localhost/unifest
+5. You should now have the UniFest site at [http://localhost/unifest](http://localhost/unifest)
 
 ### Create a remote server and deploy the site
 
