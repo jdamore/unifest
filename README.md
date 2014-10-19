@@ -3,10 +3,10 @@
 
 ## Description
 
-UQ Presentation UniFest project example.
-Contains a very simple website and its Ansible configuration.
-Requires Ansible and Java.
-Developed on MacOSX 10.9.5.
+* UQ Presentation UniFest project example.
+* Contains a very simple website and its Ansible configuration.
+* Requires Ansible and Java.
+* Developed on MacOSX 10.9.5.
 
 ## Get Started
 
@@ -20,14 +20,15 @@ Developed on MacOSX 10.9.5.
 
 ### Create a remote server and deploy the site
 
-1. Create an AWS Account and generate an Access Key
-2. In ```ec2/ec2.config``` specify your access and secret keys
-3. Run ```./new.sh``` to create a new instance
-4. Add this instance name to the [remote] inventory e.g. ec2-54-163-145-57.compute-1.amazonaws.com
-5. ```cd``` to ```config```
-6. run ```ansible-playbook -i remote bootstrap.yml```
-7. run ```ansible-playbook -i remote deploy.yml```
-8. You should now have the UniFest site on the remote server e.g. http://ec2-54-163-145-57.compute-1.amazonaws.com/unifest
+1. Install [Java](https://www.java.com/en/download/mac_download.jsp?locale-=en)
+2. Create an AWS Account and generate an Access Key
+3. In ```ec2/ec2.config``` specify your access and secret keys
+4. Run ```./new.sh``` to create a new instance
+5. Add this instance name to the [remote] inventory e.g. ec2-54-163-145-57.compute-1.amazonaws.com
+6. ```cd``` to ```config```
+7. run ```ansible-playbook -i remote bootstrap.yml```
+8. run ```ansible-playbook -i remote deploy.yml```
+9. You should now have the UniFest site on the remote server e.g. http://ec2-54-163-145-57.compute-1.amazonaws.com/unifest
 
 ### All in one
 
