@@ -14,7 +14,7 @@ Developed on MacOSX 10.9.5.
 
 1. Install Ansible http://www.ansible.com/home
 2. cd to config
-3. run aaaansible-playbook -i local bootstrap.yml
+3. run ```ansible-playbook -i local bootstrap.yml```
 4. run ansible-playbook -i local deploy.yml
 5. You should now have the UniFest site at http://localhost/unifest
 
