@@ -10,7 +10,7 @@
 
 ## Get Started
 
-### Try locally (on MacOSX)
+### Try locally
 
 1. Install [Ansible](http://www.ansible.com/home)
 2. ```cd``` to ```config```
