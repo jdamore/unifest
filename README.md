@@ -10,7 +10,7 @@
 
 ## Get Started
 
-### Try locally
+### Setup the site locally
 
 1. Install [Ansible](http://www.ansible.com/home)
 2. ```cd``` to ```config```
@@ -18,7 +18,7 @@
 4. run ```ansible-playbook -i local deploy.yml```
 5. You should now have the UniFest site at [http://localhost/unifest](http://localhost/unifest)
 
-### Create a remote server and deploy the site
+### Setup the site to a remote server
 
 1. Install [Java](https://www.java.com/en/download/mac_download.jsp?locale-=en)
 2. Create an AWS Account and generate an Access Key
