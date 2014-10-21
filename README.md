@@ -5,7 +5,7 @@
 
 * UQ Presentation UniFest project example.
 * Contains a very simple website and its Ansible configuration.
-* Requires Ansible and Java.
+* Requires Ansible, Boto and Java.
 * Developed on MacOSX 10.9.5.
 
 ## Get Started
@@ -18,52 +18,37 @@
 4. run ```ansible-playbook -i local deploy.yml```
 5. You should now have the UniFest site at [http://localhost/unifest](http://localhost/unifest)
 
-### Setup the site to a remote server
+### Setup the site to a remote EC2 instance
 
 1. Install [Java](https://www.java.com/en/download/mac_download.jsp?locale-=en)
+2. Install [Boto](https://boto.readthedocs.org/en/latest/) : ```sudo easy_install boto```
 2. Create an AWS Account and generate an Access Key
-3. In ```ec2/ec2.config``` specify your access and secret keys
-4. Run ```./new.sh``` to create a new instance
-5. Add this instance name to the [remote] inventory (e.g. ec2-54-163-145-57.compute-1.amazonaws.com)
-6. ```cd``` to ```config```
-7. run ```ansible-playbook -i remote bootstrap.yml```
-8. run ```ansible-playbook -i remote deploy.yml```
+3. In ```ec2.config``` specify your access and secret keys
+4. Run ```./ec2-new.sh``` to create a new instance
+5. Run ```./ec2-boot.sh```
+8. Run ```./ec2-deploy.sh```
 9. You should now have the UniFest site on the remote server (e.g. http://ec2-54-163-145-57.compute-1.amazonaws.com/unifest)
-
-### All in one
-
-1. Run ```new.sh``` to create another instance
-2. Add this instance name to the [remote] inventory e.g. ec2-54-163-145-57.compute-1.amazonaws.com
-3. run ```./boot.sh``` to bootstrap your Mac and the remote instances
-4. run ```./deploy.sh``` to deploy the site to all resources
-5. You should now have the UniFest site on the remote server e.g. http://ec2-<something>.compute-1.amazonaws.com/unifest
 
 ## Files
 
 * ```config``` : Ansible configuration
 	* ```local```: local resources inventory
-	* ```remote```: remote resources inventory
+	* ```ec2.yml```: Playbook to provision a new EC2
 	* ```bootstrap.yml```: Playbook for bootstrapping the resources
 	* ```deploy.yml```: Playbook for deploying the site to local and remote resources
-
-* ```ec2``` : AWS EC2 command line API and wrappers
- 	* ```ec2-api-tools-1.7.1.1```: CLI provided by Amazon
- 	* ```ec2-amis```: list all available AMIs
- 	* ```ec2-create```: create an EC2 instance
- 	* ```ec2-describe```: describe all instance you have created
- 	* ```ec2-kill```: destroy an EC2 instance
- 	* ```ec2-start```: start an ESB-backed EC2 instance
- 	* ```ec2-stop```: stop an ESB-backed EC2 instamce
- 	* ```ec2-stop-all-running```: stop all running ESB-backed EC2 instances
- 	* ```ec2-tag```: add a custom tag to an EC2 instance
- 	* ```ec2.config```: the config file - add your keys here
+	* ```ec2.py```: Ansible EC2 Python module (requires boto)
 
 * ```unifest```: The UniFest website
 
 * Plus some top level scripts
-	* ```new.sh```: create a new EC2 instance (ec2-api)
-	* ```all.sh```: list all remote (AWS) resources (ec2-api)
-	* ```boot.sh```: bootstrap all resources with (Ansible)
-	* ```deploy.sh```: deploy the UniFest websote to all resources (Ansible)
+	* ```boot.sh```: bootstrap all resources with
+	* ```deploy.sh```: deploy the UniFest website to yor local apache server
+	* ```ec2-new.sh```: create a new EC2 instance
+	* ```ec2-boot.sh```: bootstrap all ec2 instances with the UnitFest stack
+	* ```ec2-deploy.sh```: deploy the UniFest sitew to all ec2 instances
+	* ```ec2-list.sh```: lists all available ec2 instances
+	* ```ec2.config```: Ansible EC2 module required properties
+	* ```ec2.ini```: Ansible EC2 inventory
+
 
 

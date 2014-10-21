@@ -1,0 +1,6 @@
+- hosts: local
+  connection: local
+  tasks:
+  - name: Provision an EC2 instance
+    ec2: keypair=jrtwmbp group=default region=us-east-1 instance_type=m1.small image=ami-d0ba0cb8 wait=true count=1
+    register: ec2

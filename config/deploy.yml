@@ -4,7 +4,7 @@
     - name : deploy
       local_action: command sudo cp -r ../unifest /Library/WebServer/Documents
 
-- hosts: remote
+- hosts: ec2
   remote_user: ubuntu
   sudo: yes
   tasks:

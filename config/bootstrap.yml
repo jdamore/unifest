@@ -4,7 +4,7 @@
     - name : apache
       local_action: command sudo apachectl start
 
-- hosts: remote
+- hosts: ec2
   remote_user: ubuntu
   sudo: yes
   tasks:
